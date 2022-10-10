@@ -1,90 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Task 1</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Resource Management</title>
 </head>
 <body>
-
 <div>
-<h1>List</h1>
-<a th:href = "@{/showNewEmployeeForm}"><button> Add</button></a>
-<table border="2">
-<thead>
-<tr>
-<th>
-EmpID
-</th>
-<th>
-Name
-</th>
-<th>
-RM
-</th>
-<th>
-Band
-</th>
-<th>
-DOJ
-</th>
-<th>
-SkillSet
-</th>
-<th>
-RAS allocation
-</th>
-<th>
-Remarks
-</th>
-<th>
-Status
-</th>
-<th>
-Action
-</th>
-</tr>
-</thead>
-<tbody>
-<tr th:each="employee : ${listEmployees}">
-<td th:text="${employee.EmpID}"></td>
-<td th:text="${employee.Name}"></td>
-<td th:text="${employee.RM}"></td>
-<td th:text="${employee.BAND}"></td>
-<td th:text="${employee.DOJ}"></td>
-<td th:text="${employee.SkillSet}"></td>
-<!--td th:text="${employee.Subtopic}"></td-->
-<td th:text="${employee.RAS_Allocation}"></td>
-<td th:text="${employee.Remarks}"></td>
-<td><input type="submit" value="Block"></td>
-<td><a th:href="@{/deleteEmployee/{id}(id=${employee.id})}">Delete</a></td>
-</tr>
-</tbody>
-</table>
-<div th:if = "${totalPages > 1}">
-<div>
-	<div>
-		Total Rows: [[${totalItems}]] 
-	</div>
-	<div >
-		<span th:each="i: ${#numbers.sequence(1, totalPages)}">
-			<a th:if="${currentPage != i}" th:href="@{'/page/' + ${i}}"><button>[[${i}]]</button></a>
-			<span th:unless="${currentPage != i}">[[${i}]]</span>  &nbsp; 
-		</span>
-	</div>
-	<div>
-		<a th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${currentPage + 1}}"><button>Next</button></a>
-		<span th:unless="${currentPage < totalPages}"><button disabled>Next</button></span>
-	</div>
- 	<div>
-     	<a th:if="${currentPage == 1 }"><button disabled>Previous</button></a>
-     	<a th:if= "${currentPage > 1 and currentPage <= totalPages}" th:href="@{'/page/' + ${currentPage - 1}}"><button>Previous</button></a>
-     </div>
-     
+    <p style="font-size:25px">Hello Admin!</p>
+    <p style="font-size:25px">Welcome.</p>
+    <p style="font-size:25px">Please click on the below button to check the available pool action.</p>
+    <a th:href="@{/availablePools}">
+        <button class="button">Available Pools</button>
+    </a>
 </div>
-</div>
-</div>
-<script>
 
-</script>
+</body>
 </body>
 </html>

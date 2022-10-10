@@ -1,10 +1,10 @@
-package com.example.demo;
+package com.RMP.resource_management;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringbootproApplicationTests {
+class ResourceManagementApplicationTests {
 
 	@Test
 	void contextLoads() {
